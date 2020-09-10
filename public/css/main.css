@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+body {
+      font-family: 'Source Sans Pro', sans-serif;
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      background: #dee1ec;
+}
+
+header {
+      text-align: center;
+      background: #0b8457;
+      width: 100%;
+      color: white;
+}
+header a,
+header a:hover {
+      color: white;
+      text-decoration: none;
+}
+header h5 {
+      padding: 0px;
+      margin: 10px;
+}
+
+form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+.custom-file {
+      width: 600px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+}
+
+.card {
+      margin-top: 2rem;
+      background: #e3e6f3;
+      text-align: center;
+}
+.card a {
+      font-size: 1.1em;
+      border-width: 2px;
+}
