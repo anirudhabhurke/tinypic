@@ -31,6 +31,10 @@ app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
 
 app.use('/', mainRoutes);
 
+app.use((req, res, next) => {
+      res.send('<h1>404 Page Not Found</h1>');
+});
+
 app.listen(8080, (req, res) => {
       console.log('Open http://localhost:8080 in browser');
 });

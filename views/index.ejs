@@ -23,7 +23,16 @@
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
       </form>
-
+      <% if(message && danger) { %>
+            <div class="alert alert-danger" role="alert">
+                  <%= message %>
+            </div>
+      <% } %>
+      <% if(message && success) { %>
+            <div class="alert alert-success" role="alert">
+                  <%= message %>
+            </div>
+      <% } %>
       <% if(imagePath) { %>
             <div class="card" style="width: 18rem; ">
                   <img class="card-img-top" src="/<%= imagePath %>" alt="Result">

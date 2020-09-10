@@ -46,3 +46,6 @@ form {
       font-size: 1.1em;
       border-width: 2px;
 }
+.alert {
+      margin-top: 10px;
+}

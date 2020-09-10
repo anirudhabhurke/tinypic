@@ -7,11 +7,23 @@ const imageminPngquant = require('imagemin-pngquant');
 router.get('/', (req, res, next) => {
       res.render('index', {
             imagePath: null,
+            message: null,
+            danger: false,
+            success: false,
       });
 });
 
 router.post('/', (req, res, next) => {
       const image = req.file;
+
+      if (!image) {
+            return res.render('index', {
+                  imagePath: null,
+                  message: 'Invalid file',
+                  danger: true,
+                  success: false,
+            });
+      }
 
       imagemin([image.path.replace('\\', '/')], {
             destination: 'images',
@@ -27,6 +39,9 @@ router.post('/', (req, res, next) => {
             .then((result) => {
                   res.render('index', {
                         imagePath: result[0].sourcePath,
+                        message: 'Operation Successful',
+                        danger: false,
+                        success: true,
                   });
             })
             .catch((error) => console.log(error));
