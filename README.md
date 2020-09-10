@@ -1,3 +1,5 @@
 # An Image Compression Tool
 
-![Screenshot](example.png?raw=true)
+Screenshot
+
+<img src="/example.png" width="512">
