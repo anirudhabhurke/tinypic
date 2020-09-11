@@ -1,8 +1,7 @@
 const router = require('express').Router();
 
-const imagemin = require('imagemin');
-const imageminJpegtran = require('imagemin-jpegtran');
-const imageminPngquant = require('imagemin-pngquant');
+const tinify = require('tinify');
+tinify.key = process.env.TINYPNG_API_KEY;
 
 router.get('/', (req, res, next) => {
       res.render('index', {
@@ -25,20 +24,13 @@ router.post('/', (req, res, next) => {
             });
       }
 
-      imagemin([image.path.replace('\\', '/')], {
-            destination: 'images',
-            plugins: [
-                  imageminJpegtran({
-                        progressive: true,
-                  }),
-                  imageminPngquant({
-                        quality: [0.6, 0.8],
-                  }),
-            ],
-      })
-            .then((result) => {
+      const imagePath = image.path;
+
+      const source = tinify.fromFile(imagePath);
+      source.toFile(imagePath)
+            .then(() => {
                   res.render('index', {
-                        imagePath: result[0].sourcePath,
+                        imagePath: image.path,
                         message: 'Operation Successful',
                         danger: false,
                         success: true,

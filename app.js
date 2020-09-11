@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
+require('dotenv').config();
 
 const mainRoutes = require('./routes/main');
 
